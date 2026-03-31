@@ -8,8 +8,8 @@ EDIT: Not ready to use.
 
 ```
 <?php 
-if ($this->yellow->extension->isExisting('googletagmanager')) {
-    echo $this->yellow->extension->get("googletagmanager")->getJsCookieDeleteCode();
+if ($this->yellow->extension->isExisting('ygtm')) {
+    echo $this->yellow->extension->get("ygtm")->getJsCookieDeleteCode();
 } 
 ?>
 ```
@@ -19,8 +19,8 @@ Put it at top of your `<head>` tag
 
 ```
 <?php 
-if ($this->yellow->extension->isExisting('googletagmanager')) {
-    echo $this->yellow->extension->get("googletagmanager")->getJsGtmCode();
+if ($this->yellow->extension->isExisting('ygtm')) {
+    echo $this->yellow->extension->get("ygtm")->getJsGtmCode();
 } 
 ?>
 ```
@@ -30,8 +30,8 @@ Put it at top of your `<body>` tag
 
 ```
 <?php 
-if ($this->yellow->extension->isExisting('googletagmanager')) {
-    echo $this->yellow->extension->get("googletagmanager")->getIframeGtmCode();
+if ($this->yellow->extension->isExisting('ygtm')) {
+    echo $this->yellow->extension->get("ygtm")->getIframeGtmCode();
 } 
 ?>
 ```
@@ -40,10 +40,10 @@ if ($this->yellow->extension->isExisting('googletagmanager')) {
 Put it at top of your `<body>` tag, directly after the Google Tag Manager »iframe« code. 
 ```
 <?php 
-if ($this->yellow->extension->isExisting('googletagmanager')) {
+if ($this->yellow->extension->isExisting('ygtm')) {
     $path = $this->yellow->page->getUrl();
-    echo $this->yellow->extension->get("googletagmanager")->getCookieConstentBanner();
-    echo $this->yellow->extension->get("googletagmanager")->setCookieForCookieConsent($path);
+    echo $this->yellow->extension->get("ygtm")->getCookieConstentBanner();
+    echo $this->yellow->extension->get("ygtm")->setCookieForCookieConsent($path);
 } 
 ?>
 ```
