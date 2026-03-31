@@ -15,7 +15,7 @@ if ($this->yellow->extension->isExisting('googletagmanager')) {
 ```
 
 ### Google Tag Manager »js« Code
-Put it at top of your <head> tag
+Put it at top of your `<head>` tag
 
 ```
 <?php 
@@ -26,7 +26,7 @@ if ($this->yellow->extension->isExisting('googletagmanager')) {
 ```
 
 ### Google Tag Manager »iframe« Code
-Put it at top of your <body> tag
+Put it at top of your `<body>` tag
 
 ```
 <?php 
@@ -37,7 +37,7 @@ if ($this->yellow->extension->isExisting('googletagmanager')) {
 ```
 
 ### Cookie Consent Banner
-Put it at top of your <body> tag, directly after the Google Tag Manager »iframe« code. 
+Put it at top of your `<body>` tag, directly after the Google Tag Manager »iframe« code. 
 ```
 <?php 
 if ($this->yellow->extension->isExisting('googletagmanager')) {
