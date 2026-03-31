@@ -1,7 +1,7 @@
 # yellow-ygtm
 Ygtm is a cookie consent extension for the Google Tag Manager. 
 
-EDIT: Not ready to use jet.
+EDIT: Not ready to use.
 
 ## Code
 ### Cookie Remove Code (Footer)
