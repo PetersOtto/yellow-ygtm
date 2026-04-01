@@ -70,7 +70,7 @@ if ($this->yellow->extension->isExisting('ygtm')) {
 Put this code into your Privacy Policy Markdown file. You will then receive two buttons to enable or disable cookies.
 
 ```
-[gtmform]
+[ygtmform]
 ```
 
 ### CSS 
