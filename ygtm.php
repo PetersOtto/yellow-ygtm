@@ -10,12 +10,11 @@ class YellowYgtm
     public function onLoad($yellow)
     {
         $this->yellow = $yellow;
-        $this->yellow->system->setDefault("ygtmCookieOkay", "Alle Cookies erlauben");
-        $this->yellow->system->setDefault("ygtmCookieNotOkay", "Nur notwendige Cookies erlauben");
-        $this->yellow->system->setDefault("ygtmBannerText", "<p>Diese Seite verwendet Cookies.<br>In unserer <a href=\"#\" target=\"_blank\" rel=\"noopener noreferrer\">Datenschutzerklärung</a> finden Sie alle Informationen dazu.");
+        $this->yellow->system->setDefault("ygtmCookieOkay", "Accept all");
+        $this->yellow->system->setDefault("ygtmCookieNotOkay", "Reject all");
+        $this->yellow->system->setDefault("ygtmBannerText", "<p>We use cookies and data to deliver and maintain Google services<br>Enter your own text, perhaps with a <a href='#' target='_blank' rel='noopener noreferrer'>link</a>.</p>");
         $this->yellow->system->setDefault("ygtmGtmId", "GTM-ID");
     }
-
 
     // Google Tag Manager »js« Code
     // Put this code on top of the <head>
@@ -32,7 +31,7 @@ class YellowYgtm
                 $output .= "j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=";
                 $output .= "'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)";
                 $output .= "})(window,document,'script','dataLayer','$gtmId');</script>\n";
-                $output .= "<!-- End Google Tag Manager -->";
+                $output .= "<!-- End Google Tag Manager -->\n";
             }
         }
         return $output;
@@ -50,7 +49,7 @@ class YellowYgtm
                 $output = "<!-- Google Tag Manager (noscript) -->\n";
                 $output .= "<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=$gtmId\"";
                 $output .= "height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n";
-                $output .= "<!-- End Google Tag Manager (noscript) -->";
+                $output .= "<!-- End Google Tag Manager (noscript) -->\n";
             }
         }
         return $output;
@@ -65,7 +64,7 @@ class YellowYgtm
         $gtmBannerText = $this->yellow->system->get("ygtmBannerText");
         ;
         if (!isset($_COOKIE['cookieConsent'])) {
-            $output = "<div id=\"tag-gtm\">\n";
+            $output = "<div id=\"ygtm-banner\">\n";
             $output .= "$gtmBannerText\n";
             $output .= "<form method=\"post\">\n";
             $output .= "<button type=\"submit\" name=\"set_cookieConsentOkayBanner\">$gtmOkay</button>\n";
@@ -117,8 +116,8 @@ class YellowYgtm
         $gtmOkay = $this->yellow->system->get("ygtmCookieOkay");
         $gtmNotOkay = $this->yellow->system->get("ygtmCookieNotOkay");
 
-        if ($name == "gtmform" && ($type == "block")) {
-            $output = "<div id=\"gtmform\">\n";
+        if ($name == "ygtmform" && ($type == "block")) {
+            $output = "<div id=\"ygtm-form\">\n";
             $output .= "<form method=\"post\">\n";
             $output .= "<button type=\"submit\" name=\"set_cookieConsentOkayPrivacyPolicy\">$gtmOkay</button>\n";
             $output .= "<button type=\"submit\" name=\"set_cookieConsentNotOkayPrivacyPolicy\">$gtmNotOkay</button>\n";
