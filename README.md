@@ -1,22 +1,27 @@
 # yellow-ygtm
 Ygtm is a cookie consent extension for the Google Tag Manager. 
 
-EDIT: Not ready to use.
-
 <p align="center"><img src="01-yellow-ygtm.png?raw=true" alt="Bildschirmfoto"></p>
 
 ## My target
 Unfortunately, I couldn't find an extension that would let me integrate Google Tag Manager into my Yellow installation. So I decided to write my own extension.
 
+## Alternative
+Please take a look at this extension as well. Maybe it's more your cup of tee? I'm not sure, though, if »GlowCookies« is still being developed.
+* https://github.com/GiovanniSalmeri/yellow-analytics
+
 ## Before installation
-I hope the extension is GDPR-compliant, but I can't guarantee it! Please check it after installation. 
+I hope the extension is GDPR-compliant, but I can't guarantee it! Please check this yourself after installation. 
 
 ## How to install an extension
-Download ZIP file and copy it into your `system/extensions` folder. [Learn more about extensions](https://github.com/annaesvensson/yellow-update)
-After installation, you'll need to add some code to your layout files and the CSS file.
+Download ZIP file and copy it into your `system/extensions` folder. [Learn more about extensions](https://github.com/annaesvensson/yellow-update). After installation, you'll need to add some code to your layout files and the CSS file.
+
+## system.ini
+Please take a look at the `/system/extension/system.ini` file. Here you can change the explanatory text and the button labels.
 
 ## Code
 ### Cookie Remove Code (Footer)
+This code must be placed in the `/system/layouts/footer.html`, preferably right above the `<\body>` tag.
 
 ```
 <?php 
@@ -27,7 +32,7 @@ if ($this->yellow->extension->isExisting('ygtm')) {
 ```
 
 ### Google Tag Manager »js« Code
-Put it at top of your `<head>` tag
+This code must be placed in the `/system/layouts/header.html`, preferably right below the `<head>` tag.
 
 ```
 <?php 
@@ -38,7 +43,7 @@ if ($this->yellow->extension->isExisting('ygtm')) {
 ```
 
 ### Google Tag Manager »iframe« Code
-Put it at top of your `<body>` tag
+This code must be placed in the `/system/layouts/header.html`, preferably right below the `<body>` tag.
 
 ```
 <?php 
@@ -49,7 +54,8 @@ if ($this->yellow->extension->isExisting('ygtm')) {
 ```
 
 ### Cookie Consent Banner
-Put it at top of your `<body>` tag, directly after the Google Tag Manager »iframe« code. 
+This code must be placed in the `/system/layouts/header.html`, preferably right below the `<body>` tag. (directly after the Google Tag Manager »iframe« code.)
+
 ```
 <?php 
 if ($this->yellow->extension->isExisting('ygtm')) {
@@ -61,14 +67,14 @@ if ($this->yellow->extension->isExisting('ygtm')) {
 ```
 
 ### Generate Form For »PrivacyPolicy«
-Put it into your Privacy Policy Markdown file.
+Put this code into your Privacy Policy Markdown file. You will then receive two buttons to enable or disable cookies.
 
 ```
 [gtmform]
 ```
 
 ### CSS 
-You can create your own css code. The following is a example for the Stockholm Theme (Standard Yellow Theme).
+You can create your own css code. The following is a example for the Stockholm theme (Standard Yellow Theme).
 Put this code at the end of the `\system\theme\stockholm.css` .
 
 ```
@@ -125,6 +131,8 @@ Put this code at the end of the `\system\theme\stockholm.css` .
 }
 ```
 
+## Acknowledgements
+* Thank you [Datenstrom](https://datenstrom.se/de/) for the great »Yellow CMS«
 
 
 
