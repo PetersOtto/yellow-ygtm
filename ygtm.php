@@ -77,32 +77,32 @@ class YellowYgtm
 
 
     // Set Cookie For Cookie Consent
-    public function setCookieForCookieConsent($path)
+    public function setCookieForCookieConsent($pathBase, $pathUrl)
     {
-        function setCookieYgtm($value, $path)
+        function setCookieYgtm($value, $pathBase, $pathUrl)
         {
-            setcookie('cookieConsent', $value, time() + (3600 * 24 * 7));
-            header('Location:' . $path);
+            setcookie('cookieConsent', $value, time() + (3600 * 24 * 7), $pathBase);
+            header('Location:' . $pathUrl);
             exit;
         }
 
         if (isset($_POST['set_cookieConsentOkayBanner'])) {
             $value = "OkayBanner";
-            setCookieYgtm($value, $path);
+            setCookieYgtm($value, $pathBase, $pathUrl);
         }
         if (isset($_POST['set_cookieConsentNotOkayBanner'])) {
             $value = "NotOkayBanner";
-            setCookieYgtm($value, $path);
+            setCookieYgtm($value, $pathBase, $pathUrl);
         }
         if (isset($_POST['set_cookieConsentOkayPrivacyPolicy'])) {
             $value = "OkayPrivacyPolicy";
-            $pathGtmForm = $path . "#gtmform";
-            setCookieYgtm($value, $pathGtmForm);
+            $pathGtmForm = $pathUrl . "#ygtm-form";
+            setCookieYgtm($value, $pathBase, $pathGtmForm);
         }
         if (isset($_POST['set_cookieConsentNotOkayPrivacyPolicy'])) {
             $value = "NotOkayPrivacyPolicy";
-            $pathGtmForm = $path . "#gtmform";
-            setCookieYgtm($value, $pathGtmForm);
+            $pathGtmForm = $pathUrl . "#ygtm-form";
+            setCookieYgtm($value, $pathBase, $pathGtmForm);
         }
     }
 
