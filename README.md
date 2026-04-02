@@ -59,9 +59,10 @@ This code must be placed in the `/system/layouts/header.html`, preferably right 
 ```
 <?php 
 if ($this->yellow->extension->isExisting('ygtm')) {
-    $path = $this->yellow->page->getUrl();
+    $pathBase = $this->yellow->page->getBase(true);
+    $pathUrl = $this->yellow->page->getUrl(true);
     echo $this->yellow->extension->get("ygtm")->getCookieConstentBanner();
-    echo $this->yellow->extension->get("ygtm")->setCookieForCookieConsent($path);
+    echo $this->yellow->extension->get("ygtm")->setCookieForCookieConsent($pathBase, $pathUrl);
 } 
 ?>
 ```
