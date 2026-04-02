@@ -62,7 +62,7 @@ class YellowYgtm
         $gtmOkay = $this->yellow->system->get("ygtmCookieOkay");
         $gtmNotOkay = $this->yellow->system->get("ygtmCookieNotOkay");
         $gtmBannerText = $this->yellow->system->get("ygtmBannerText");
-        ;
+        
         if (!isset($_COOKIE['cookieConsent'])) {
             $output = "<div id=\"ygtm-banner\">\n";
             $output .= "$gtmBannerText\n";
